@@ -1,10 +1,5 @@
 package com.ecommerce.model;
 
-import com.ecommerce.dao.ProductDAO;
-import com.ecommerce.dao.UserDAO;
-
-import java.util.List;
-
 /**
  * Represents an admin user who has privileges to manage users and products.
  */

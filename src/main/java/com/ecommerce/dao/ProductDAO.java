@@ -2,8 +2,6 @@ package com.ecommerce.dao;
 
 import com.ecommerce.model.Product;
 import com.ecommerce.util.Database;
-
-import java.math.BigDecimal;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,27 +28,6 @@ public class ProductDAO {
         } catch (SQLException e) {
             System.err.println("Error adding product: " + e.getMessage());
         }
-    }
-
-    /**
-     * Retrieves a list of products for a specific seller.
-     *
-     * @param sellerId The ID of the seller.
-     * @return A list of products belonging to the seller.
-     */
-    public List<Product> getProductsBySeller(int sellerId) {
-        List<Product> products = new ArrayList<>();
-        String sql = "SELECT * FROM products WHERE seller_id = ?";
-        try (Connection conn = Database.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setInt(1, sellerId);
-            ResultSet rs = stmt.executeQuery();
-            while (rs.next()) {
-                products.add(mapToProduct(rs));
-            }
-        } catch (SQLException e) {
-            System.err.println("Error fetching products by seller: " + e.getMessage());
-        }
-        return products;
     }
 
     /**

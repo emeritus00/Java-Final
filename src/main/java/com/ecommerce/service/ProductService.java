@@ -1,7 +1,7 @@
 package com.ecommerce.service;
+
 import com.ecommerce.dao.ProductDAO;
 import com.ecommerce.model.Product;
-
 import java.util.List;
 
 /**
@@ -57,6 +57,7 @@ public class ProductService {
             System.out.println("Product not found.");
         }
     }
+
 
     /**
      * add product to products database.

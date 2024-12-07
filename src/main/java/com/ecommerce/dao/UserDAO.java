@@ -5,7 +5,6 @@ import com.ecommerce.model.Buyer;
 import com.ecommerce.model.Seller;
 import com.ecommerce.model.User;
 import com.ecommerce.util.Database;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

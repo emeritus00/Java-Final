@@ -1,9 +1,5 @@
 package com.ecommerce.model;
 
-import com.ecommerce.dao.ProductDAO;
-
-import java.util.List;
-
 /**
  * Represents a seller user who can manage their own products.
  */
