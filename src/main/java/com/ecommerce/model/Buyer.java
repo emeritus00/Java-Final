@@ -1,9 +1,5 @@
 package com.ecommerce.model;
 
-import com.ecommerce.dao.ProductDAO;
-
-import java.util.List;
-
 /**
  * Represents a buyer user who can browse, search, and view products.
  */

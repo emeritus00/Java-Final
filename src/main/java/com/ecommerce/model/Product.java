@@ -13,8 +13,6 @@ public class Product {
     private int quantity;
     private int sellerId;
 
-    // Getters and Setters
-
     /**
      * Gets the product ID.
      *
