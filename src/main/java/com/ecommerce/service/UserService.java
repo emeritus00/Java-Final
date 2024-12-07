@@ -1,10 +1,12 @@
 package com.ecommerce.service;
+
 import com.ecommerce.dao.UserDAO;
 import com.ecommerce.model.Admin;
 import com.ecommerce.model.Buyer;
 import com.ecommerce.model.Seller;
 import com.ecommerce.model.User;
 import com.ecommerce.util.PasswordUtil;
+
 
 import java.util.List;
 
@@ -14,7 +16,7 @@ import java.util.List;
  */
 
 public class UserService {
-    private UserDAO userDAO = new UserDAO();
+    private final UserDAO userDAO = new UserDAO();
 
     /**
      * Registers a new user in the system.
@@ -56,19 +58,15 @@ public class UserService {
         UserDAO userDAO = new UserDAO();
         User user = userDAO.getUserByEmail(email);
 
-        if (user != null) {
-            switch (user.getRole().toLowerCase()) {
-                case "buyer":
-                    return new Buyer(user.getId(), user.getUsername(), user.getEmail(), user.getPassword());
-                case "seller":
-                    return new Seller(user.getId(), user.getUsername(), user.getEmail(), user.getPassword());
-                case "admin":
-                    return new Admin(user.getId(), user.getUsername(), user.getEmail(), user.getPassword());
-                default:
-                    return null; // Invalid role
-            }
+        if (user != null && PasswordUtil.checkPassword(password, user.getPassword())) {
+            return switch (user.getRole().toLowerCase()) {
+                case "buyer" -> new Buyer(user.getId(), user.getUsername(), user.getEmail(), user.getPassword());
+                case "seller" -> new Seller(user.getId(), user.getUsername(), user.getEmail(), user.getPassword());
+                case "admin" -> new Admin(user.getId(), user.getUsername(), user.getEmail(), user.getPassword());
+                default -> null;
+            };
         }
-        return null; // User not found or password mismatch
+        return null;
     }
 
     /**
