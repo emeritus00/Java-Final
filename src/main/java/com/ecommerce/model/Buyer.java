@@ -38,43 +38,5 @@ public class Buyer extends User {
         System.out.println("4. Logout");
     }
 
-    /**
-     * Displays a list of all available products.
-     */
-    public void browseProducts() {
-        ProductDAO productDAO = new ProductDAO();
-        List<Product> products = productDAO.getAllProducts();
-        products.forEach(System.out::println);
-    }
-
-    /**
-     * Searches for a product by its name.
-     *
-     * @param productName The name of the product to search for.
-     */
-    public void searchProduct(String productName) {
-        ProductDAO productDAO = new ProductDAO();
-        Product product = productDAO.getProductByName(productName);
-        if (product != null) {
-            System.out.println(product);
-        } else {
-            System.out.println("Product not found.");
-        }
-    }
-
-    /**
-     * Views the details of a specific product by its ID.
-     *
-     * @param productId The ID of the product to view.
-     */
-    public void viewProductDetails(int productId) {
-        ProductDAO productDAO = new ProductDAO();
-        Product product = productDAO.getProductById(productId);
-        if (product != null) {
-            System.out.println(product);
-        } else {
-            System.out.println("Product not found.");
-        }
-    }
 }
 

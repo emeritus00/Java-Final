@@ -38,38 +38,5 @@ public class Admin extends User {
         System.out.println("3. View All Products");
         System.out.println("4. Logout");
     }
-
-    /**
-     * Displays all users in the system.
-     */
-    public void viewAllUsers() {
-        UserDAO userDAO = new UserDAO();
-        List<User> users = userDAO.getAllUsers();
-        users.forEach(user -> System.out.println(user.getUsername() + " - " + user.getEmail()));
-    }
-
-    /**
-     * Deletes a user by their ID.
-     *
-     * @param userId The unique ID of the user to be deleted.
-     */
-    public void deleteUser(int userId) {
-        UserDAO userDAO = new UserDAO();
-        if (userDAO.deleteUser(userId)) {
-            System.out.println("User deleted successfully!");
-        } else {
-            System.out.println("Failed to delete user.");
-        }
-    }
-
-    /**
-     * Displays all products in the system.
-     */
-    public void viewAllProducts() {
-        ProductDAO productDAO = new ProductDAO();
-        List<Product> products = productDAO.getAllProducts();
-        products.forEach(product -> System.out.println(
-                product.getName() + " by Seller ID: " + product.getSellerId()));
-    }
 }
 
