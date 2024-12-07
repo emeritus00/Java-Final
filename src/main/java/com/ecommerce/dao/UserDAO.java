@@ -1,4 +1,5 @@
 package com.ecommerce.dao;
+
 import com.ecommerce.model.Admin;
 import com.ecommerce.model.Buyer;
 import com.ecommerce.model.Seller;

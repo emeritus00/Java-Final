@@ -1,4 +1,5 @@
 package com.ecommerce.dao;
+
 import com.ecommerce.model.Product;
 import com.ecommerce.util.Database;
 
